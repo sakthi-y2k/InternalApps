@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Web", "AccountDashboard.Web\AccountDashboard.Web.csproj", "{B0831342-62FE-4285-BB2E-EB0E6C61F5C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Service", "AccountDashboard.Service\AccountDashboard.Service.csproj", "{DC865D0F-65C7-4DEE-845B-5D3F4E4B119C}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AccountDashboard.Database", "AccountDashboard.Database\AccountDashboard.Database.sqlproj", "{0CF94DE0-5450-4CF4-B1FD-6E683DD1F988}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{B0831342-62FE-4285-BB2E-EB0E6C61F5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0831342-62FE-4285-BB2E-EB0E6C61F5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0831342-62FE-4285-BB2E-EB0E6C61F5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC865D0F-65C7-4DEE-845B-5D3F4E4B119C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC865D0F-65C7-4DEE-845B-5D3F4E4B119C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC865D0F-65C7-4DEE-845B-5D3F4E4B119C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC865D0F-65C7-4DEE-845B-5D3F4E4B119C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF94DE0-5450-4CF4-B1FD-6E683DD1F988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF94DE0-5450-4CF4-B1FD-6E683DD1F988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF94DE0-5450-4CF4-B1FD-6E683DD1F988}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0CF94DE0-5450-4CF4-B1FD-6E683DD1F988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF94DE0-5450-4CF4-B1FD-6E683DD1F988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF94DE0-5450-4CF4-B1FD-6E683DD1F988}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
