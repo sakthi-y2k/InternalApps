@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[ProjectDetails]
+﻿CREATE TABLE [dbo].[ProjectDetail]
 (
 ProjectId INT PRIMARY KEY,
 ProjectName VARCHAR(100),
