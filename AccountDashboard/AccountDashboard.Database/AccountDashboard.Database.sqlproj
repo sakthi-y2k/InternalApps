@@ -59,12 +59,12 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="ProjectDetails.sql" />
-    <Build Include="CurrentMileStones.sql" />
+    <Build Include="ProjectDetail.sql" />
+    <Build Include="CurrentMilestone.sql" />
     <Build Include="ProjectTimelineBudget.sql" />
     <Build Include="ProjectQuality.sql" />
-    <Build Include="CodeAnalysisDefects.sql" />
+    <Build Include="CodeAnalysisDefect.sql" />
     <Build Include="ProjectRisk.sql" />
-    <Build Include="Milestones.sql" />
+    <Build Include="Milestone.sql" />
   </ItemGroup>
 </Project>

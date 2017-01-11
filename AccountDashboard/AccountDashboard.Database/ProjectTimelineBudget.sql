@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ProjectTimelineBudget]
 (
-BudgetID INT NOT NULL PRIMARY KEY,
+BudgetId INT NOT NULL PRIMARY KEY,
 ProjectId INT,
 CurrentStartDate DATE,
 CurrentEndDate DATE,

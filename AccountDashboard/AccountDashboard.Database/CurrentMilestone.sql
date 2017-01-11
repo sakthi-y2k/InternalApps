@@ -1,8 +1,8 @@
-﻿CREATE TABLE [dbo].[CurrentMileStones]
+﻿CREATE TABLE [dbo].[CurrentMilestone]
 (
 MilestoneId INT NOT NULL PRIMARY KEY,
 ProjectId INT,
-MileStone VARCHAR(20),
+Milestone VARCHAR(200),
 OrginalStartDate DATE,
 OrginalEndDate DATE,
 CurrentStartDate DATE,

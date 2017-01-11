@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Milestones]
+﻿CREATE TABLE [dbo].[Milestone]
 (
 MilestoneId INT NOT NULL PRIMARY KEY,
 ProjectId INT,

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[CodeAnalysisDefects]
+﻿CREATE TABLE [dbo].[CodeAnalysisDefect]
 (
 AnalysisID INT NOT NULL PRIMARY KEY,
 MileStoneId INT,

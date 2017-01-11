@@ -2,8 +2,8 @@
 (
 RiskId INT NOT NULL PRIMARY KEY,
 ProjectId INT,
-Risk INT,
-OpenRisks INT,
-ActionPlan VARCHAR(100),
-SupportRequests VARCHAR(100)
+RiskCount INT,
+OpenRiskCount INT,
+ActionPlan VARCHAR(500),
+SupportRequest VARCHAR(500)
 )
