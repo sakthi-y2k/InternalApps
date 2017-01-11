@@ -59,6 +59,12 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="DeliveryDashboardTables.sql" />
+    <Build Include="ProjectDetails.sql" />
+    <Build Include="CurrentMileStones.sql" />
+    <Build Include="ProjectTimelineBudget.sql" />
+    <Build Include="ProjectQuality.sql" />
+    <Build Include="CodeAnalysisDefects.sql" />
+    <Build Include="ProjectRisk.sql" />
+    <Build Include="Milestones.sql" />
   </ItemGroup>
 </Project>
