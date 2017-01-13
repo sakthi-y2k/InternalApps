@@ -1,9 +1,13 @@
 ﻿CREATE TABLE [dbo].[Milestone]
 (
-MilestoneId INT NOT NULL PRIMARY KEY,
-ProjectId INT,
-Successful INT,
-Missed INT,
-Upcoming VARCHAR(20),
-Deferred VARCHAR(20)
+Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+ProjectId INT NOT NULL  FOREIGN KEY REFERENCES Project(Id),
+MilestoneType INT NOT NULL,
+MilestoneStatus INT NOT NULL,
+--MilestoneType INT NOT NULL FOREIGN KEY REFERENCES MilestoneType(Id),
+--MilestoneStatus INT NOT NULL FOREIGN KEY REFERENCES MilestoneStatus(Id),
+PlannedStartDate DATE,
+PlannedEndDate DATE,
+ActualStartDate DATE,
+ActualEndDate DATE
 )

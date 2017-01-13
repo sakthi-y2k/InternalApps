@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Service", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Data", "AccountDashboard.Data\AccountDashboard.Data.csproj", "{C3246E1C-6E43-4DA2-AB6C-B3BE5A9C7BC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Model", "AccountDashboard.Model\AccountDashboard.Model.csproj", "{573820FD-1281-48F6-9181-8CBE0906BB00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{C3246E1C-6E43-4DA2-AB6C-B3BE5A9C7BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3246E1C-6E43-4DA2-AB6C-B3BE5A9C7BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3246E1C-6E43-4DA2-AB6C-B3BE5A9C7BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{573820FD-1281-48F6-9181-8CBE0906BB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{573820FD-1281-48F6-9181-8CBE0906BB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{573820FD-1281-48F6-9181-8CBE0906BB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{573820FD-1281-48F6-9181-8CBE0906BB00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

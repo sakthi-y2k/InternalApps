@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[CodeAnalysis]
+(
+Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+MileStoneId INT NOT NULL FOREIGN KEY REFERENCES Milestone(Id),
+AnalysisTypeId INT NOT NULL,
+--AnalysisTypeId INT NOT NULL FOREIGN KEY REFERENCES CodeAnalysisType(Id),
+Critical VARCHAR(20),
+Blocker VARCHAR(20),
+Major VARCHAR(20),
+Minor VARCHAR(20)
+)
