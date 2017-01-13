@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca8b94938f1845a89d6f218e4d47d261" Name="Diagram1">
+        <EntityTypeShape EntityType="AccountDBModel.BudgetTimeline" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AccountDBModel.CodeAnalysis" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AccountDBModel.CodeAnalysisType" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="AccountDBModel.Milestone" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AccountDBModel.MilestoneStatus" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="AccountDBModel.MilestoneType" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AccountDBModel.Project" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AccountDBModel.Quality" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AccountDBModel.Risk" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <AssociationConnector Association="AccountDBModel.FK__BudgetTim__Miles__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="AccountDBModel.FK__CodeAnaly__Analy__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="AccountDBModel.FK__CodeAnaly__MileS__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="AccountDBModel.FK__Milestone__Miles__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="AccountDBModel.FK__Milestone__Miles__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="AccountDBModel.FK__Milestone__Proje__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="AccountDBModel.FK__Quality__MileSto__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="AccountDBModel.FK__Risk__MilestoneI__4316F928" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

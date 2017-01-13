@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Risk]
+(
+Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+MilestoneId INT NOT NULL FOREIGN KEY REFERENCES Milestone(Id),
+TotalRisk INT,
+OpenRisk INT,
+ActionPlan VARCHAR(500),
+SupportRequest VARCHAR(500)
+)

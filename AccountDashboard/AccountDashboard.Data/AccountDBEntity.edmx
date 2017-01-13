@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AccountDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BudgetTimeline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MilestoneId" Type="int" Nullable="false" />
+          <Property Name="ActualStartDate" Type="date" />
+          <Property Name="ActualEndDate" Type="date" />
+          <Property Name="Revenue" Type="int" />
+          <Property Name="BurntEffort" Type="int" />
+          <Property Name="UCPCPFPOrg" Type="int" />
+          <Property Name="UCPCPFPCur" Type="int" />
+        </EntityType>
+        <EntityType Name="CodeAnalysis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MileStoneId" Type="int" Nullable="false" />
+          <Property Name="AnalysisTypeId" Type="int" Nullable="false" />
+          <Property Name="Critical" Type="varchar" MaxLength="20" />
+          <Property Name="Blocker" Type="varchar" MaxLength="20" />
+          <Property Name="Major" Type="varchar" MaxLength="20" />
+          <Property Name="Minor" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="CodeAnalysisType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Milestone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="MilestoneType" Type="int" Nullable="false" />
+          <Property Name="MilestoneStatus" Type="int" Nullable="false" />
+          <Property Name="PlannedStartDate" Type="date" />
+          <Property Name="PlannedEndDate" Type="date" />
+          <Property Name="ActualStartDate" Type="date" />
+          <Property Name="ActualEndDate" Type="date" />
+        </EntityType>
+        <EntityType Name="MilestoneStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MilestoneType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Manager" Type="varchar" MaxLength="100" />
+          <Property Name="ActualStartDate" Type="date" />
+          <Property Name="ActualEndDate" Type="date" />
+          <Property Name="PlannedEffort" Type="int" />
+          <Property Name="ActualEffort" Type="int" />
+          <Property Name="TCV" Type="int" />
+        </EntityType>
+        <EntityType Name="Quality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MileStoneId" Type="int" Nullable="false" />
+          <Property Name="CodeReviewTotal" Type="int" />
+          <Property Name="CodeReviewClosed" Type="int" />
+          <Property Name="UTDefectsTotal" Type="int" />
+          <Property Name="UTDefectsClosed" Type="int" />
+          <Property Name="SITDefectsTotal" Type="int" />
+          <Property Name="SITDefectsClosed" Type="int" />
+          <Property Name="UATDefectsTotal" Type="int" />
+          <Property Name="UATDefectsClosed" Type="int" />
+          <Property Name="SITTestcases" Type="int" />
+          <Property Name="SITCompletion" Type="int" />
+          <Property Name="UATTestcases" Type="int" />
+          <Property Name="UATCompletion" Type="int" />
+          <Property Name="UTToolName" Type="varchar" MaxLength="30" />
+          <Property Name="UTCodeCoverage" Type="int" />
+        </EntityType>
+        <EntityType Name="Risk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MilestoneId" Type="int" Nullable="false" />
+          <Property Name="TotalRisk" Type="int" />
+          <Property Name="OpenRisk" Type="int" />
+          <Property Name="ActionPlan" Type="varchar" MaxLength="500" />
+          <Property Name="SupportRequest" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK__BudgetTim__Miles__45F365D3">
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="1" />
+          <End Role="BudgetTimeline" Type="Self.BudgetTimeline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milestone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BudgetTimeline">
+              <PropertyRef Name="MilestoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CodeAnaly__Analy__3D5E1FD2">
+          <End Role="CodeAnalysisType" Type="Self.CodeAnalysisType" Multiplicity="1" />
+          <End Role="CodeAnalysis" Type="Self.CodeAnalysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeAnalysisType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CodeAnalysis">
+              <PropertyRef Name="AnalysisTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CodeAnaly__MileS__3C69FB99">
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="1" />
+          <End Role="CodeAnalysis" Type="Self.CodeAnalysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milestone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CodeAnalysis">
+              <PropertyRef Name="MileStoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Milestone__Miles__30F848ED">
+          <End Role="MilestoneType" Type="Self.MilestoneType" Multiplicity="1" />
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MilestoneType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Milestone">
+              <PropertyRef Name="MilestoneType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Milestone__Miles__31EC6D26">
+          <End Role="MilestoneStatus" Type="Self.MilestoneStatus" Multiplicity="1" />
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MilestoneStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Milestone">
+              <PropertyRef Name="MilestoneStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Milestone__Proje__300424B4">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Milestone">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Quality__MileSto__403A8C7D">
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="1" />
+          <End Role="Quality" Type="Self.Quality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milestone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Quality">
+              <PropertyRef Name="MileStoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Risk__MilestoneI__4316F928">
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="1" />
+          <End Role="Risk" Type="Self.Risk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milestone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Risk">
+              <PropertyRef Name="MilestoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccountDBModelStoreContainer">
+          <EntitySet Name="BudgetTimeline" EntityType="Self.BudgetTimeline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CodeAnalysis" EntityType="Self.CodeAnalysis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CodeAnalysisType" EntityType="Self.CodeAnalysisType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Milestone" EntityType="Self.Milestone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MilestoneStatus" EntityType="Self.MilestoneStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MilestoneType" EntityType="Self.MilestoneType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quality" EntityType="Self.Quality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Risk" EntityType="Self.Risk" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BudgetTim__Miles__45F365D3" Association="Self.FK__BudgetTim__Miles__45F365D3">
+            <End Role="Milestone" EntitySet="Milestone" />
+            <End Role="BudgetTimeline" EntitySet="BudgetTimeline" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CodeAnaly__Analy__3D5E1FD2" Association="Self.FK__CodeAnaly__Analy__3D5E1FD2">
+            <End Role="CodeAnalysisType" EntitySet="CodeAnalysisType" />
+            <End Role="CodeAnalysis" EntitySet="CodeAnalysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CodeAnaly__MileS__3C69FB99" Association="Self.FK__CodeAnaly__MileS__3C69FB99">
+            <End Role="Milestone" EntitySet="Milestone" />
+            <End Role="CodeAnalysis" EntitySet="CodeAnalysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Milestone__Miles__30F848ED" Association="Self.FK__Milestone__Miles__30F848ED">
+            <End Role="MilestoneType" EntitySet="MilestoneType" />
+            <End Role="Milestone" EntitySet="Milestone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Milestone__Miles__31EC6D26" Association="Self.FK__Milestone__Miles__31EC6D26">
+            <End Role="MilestoneStatus" EntitySet="MilestoneStatus" />
+            <End Role="Milestone" EntitySet="Milestone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Milestone__Proje__300424B4" Association="Self.FK__Milestone__Proje__300424B4">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Milestone" EntitySet="Milestone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Quality__MileSto__403A8C7D" Association="Self.FK__Quality__MileSto__403A8C7D">
+            <End Role="Milestone" EntitySet="Milestone" />
+            <End Role="Quality" EntitySet="Quality" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Risk__MilestoneI__4316F928" Association="Self.FK__Risk__MilestoneI__4316F928">
+            <End Role="Milestone" EntitySet="Milestone" />
+            <End Role="Risk" EntitySet="Risk" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccountDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BudgetTimeline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MilestoneId" Type="Int32" Nullable="false" />
+          <Property Name="ActualStartDate" Type="DateTime" Precision="0" />
+          <Property Name="ActualEndDate" Type="DateTime" Precision="0" />
+          <Property Name="Revenue" Type="Int32" />
+          <Property Name="BurntEffort" Type="Int32" />
+          <Property Name="UCPCPFPOrg" Type="Int32" />
+          <Property Name="UCPCPFPCur" Type="Int32" />
+          <NavigationProperty Name="Milestone" Relationship="Self.FK__BudgetTim__Miles__45F365D3" FromRole="BudgetTimeline" ToRole="Milestone" />
+        </EntityType>
+        <EntityType Name="CodeAnalysis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MileStoneId" Type="Int32" Nullable="false" />
+          <Property Name="AnalysisTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Critical" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Blocker" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Minor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CodeAnalysisType" Relationship="Self.FK__CodeAnaly__Analy__3D5E1FD2" FromRole="CodeAnalysis" ToRole="CodeAnalysisType" />
+          <NavigationProperty Name="Milestone" Relationship="Self.FK__CodeAnaly__MileS__3C69FB99" FromRole="CodeAnalysis" ToRole="Milestone" />
+        </EntityType>
+        <EntityType Name="CodeAnalysisType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CodeAnalysis" Relationship="Self.FK__CodeAnaly__Analy__3D5E1FD2" FromRole="CodeAnalysisType" ToRole="CodeAnalysis" />
+        </EntityType>
+        <EntityType Name="Milestone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="MilestoneType" Type="Int32" Nullable="false" />
+          <Property Name="MilestoneStatus" Type="Int32" Nullable="false" />
+          <Property Name="PlannedStartDate" Type="DateTime" Precision="0" />
+          <Property Name="PlannedEndDate" Type="DateTime" Precision="0" />
+          <Property Name="ActualStartDate" Type="DateTime" Precision="0" />
+          <Property Name="ActualEndDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="BudgetTimeline" Relationship="Self.FK__BudgetTim__Miles__45F365D3" FromRole="Milestone" ToRole="BudgetTimeline" />
+          <NavigationProperty Name="CodeAnalysis" Relationship="Self.FK__CodeAnaly__MileS__3C69FB99" FromRole="Milestone" ToRole="CodeAnalysis" />
+          <NavigationProperty Name="MilestoneType1" Relationship="Self.FK__Milestone__Miles__30F848ED" FromRole="Milestone" ToRole="MilestoneType" />
+          <NavigationProperty Name="MilestoneStatus1" Relationship="Self.FK__Milestone__Miles__31EC6D26" FromRole="Milestone" ToRole="MilestoneStatus" />
+          <NavigationProperty Name="Project" Relationship="Self.FK__Milestone__Proje__300424B4" FromRole="Milestone" ToRole="Project" />
+          <NavigationProperty Name="Quality" Relationship="Self.FK__Quality__MileSto__403A8C7D" FromRole="Milestone" ToRole="Quality" />
+          <NavigationProperty Name="Risk" Relationship="Self.FK__Risk__MilestoneI__4316F928" FromRole="Milestone" ToRole="Risk" />
+        </EntityType>
+        <EntityType Name="MilestoneStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Milestone" Relationship="Self.FK__Milestone__Miles__31EC6D26" FromRole="MilestoneStatus" ToRole="Milestone" />
+        </EntityType>
+        <EntityType Name="MilestoneType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Milestone" Relationship="Self.FK__Milestone__Miles__30F848ED" FromRole="MilestoneType" ToRole="Milestone" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Manager" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActualStartDate" Type="DateTime" Precision="0" />
+          <Property Name="ActualEndDate" Type="DateTime" Precision="0" />
+          <Property Name="PlannedEffort" Type="Int32" />
+          <Property Name="ActualEffort" Type="Int32" />
+          <Property Name="TCV" Type="Int32" />
+          <NavigationProperty Name="Milestone" Relationship="Self.FK__Milestone__Proje__300424B4" FromRole="Project" ToRole="Milestone" />
+        </EntityType>
+        <EntityType Name="Quality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MileStoneId" Type="Int32" Nullable="false" />
+          <Property Name="CodeReviewTotal" Type="Int32" />
+          <Property Name="CodeReviewClosed" Type="Int32" />
+          <Property Name="UTDefectsTotal" Type="Int32" />
+          <Property Name="UTDefectsClosed" Type="Int32" />
+          <Property Name="SITDefectsTotal" Type="Int32" />
+          <Property Name="SITDefectsClosed" Type="Int32" />
+          <Property Name="UATDefectsTotal" Type="Int32" />
+          <Property Name="UATDefectsClosed" Type="Int32" />
+          <Property Name="SITTestcases" Type="Int32" />
+          <Property Name="SITCompletion" Type="Int32" />
+          <Property Name="UATTestcases" Type="Int32" />
+          <Property Name="UATCompletion" Type="Int32" />
+          <Property Name="UTToolName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UTCodeCoverage" Type="Int32" />
+          <NavigationProperty Name="Milestone" Relationship="Self.FK__Quality__MileSto__403A8C7D" FromRole="Quality" ToRole="Milestone" />
+        </EntityType>
+        <EntityType Name="Risk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MilestoneId" Type="Int32" Nullable="false" />
+          <Property Name="TotalRisk" Type="Int32" />
+          <Property Name="OpenRisk" Type="Int32" />
+          <Property Name="ActionPlan" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SupportRequest" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Milestone" Relationship="Self.FK__Risk__MilestoneI__4316F928" FromRole="Risk" ToRole="Milestone" />
+        </EntityType>
+        <Association Name="FK__BudgetTim__Miles__45F365D3">
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="1" />
+          <End Role="BudgetTimeline" Type="Self.BudgetTimeline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milestone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BudgetTimeline">
+              <PropertyRef Name="MilestoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CodeAnaly__Analy__3D5E1FD2">
+          <End Role="CodeAnalysisType" Type="Self.CodeAnalysisType" Multiplicity="1" />
+          <End Role="CodeAnalysis" Type="Self.CodeAnalysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeAnalysisType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CodeAnalysis">
+              <PropertyRef Name="AnalysisTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CodeAnaly__MileS__3C69FB99">
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="1" />
+          <End Role="CodeAnalysis" Type="Self.CodeAnalysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milestone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CodeAnalysis">
+              <PropertyRef Name="MileStoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Milestone__Miles__30F848ED">
+          <End Role="MilestoneType" Type="Self.MilestoneType" Multiplicity="1" />
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MilestoneType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Milestone">
+              <PropertyRef Name="MilestoneType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Milestone__Miles__31EC6D26">
+          <End Role="MilestoneStatus" Type="Self.MilestoneStatus" Multiplicity="1" />
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MilestoneStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Milestone">
+              <PropertyRef Name="MilestoneStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Milestone__Proje__300424B4">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Milestone">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Quality__MileSto__403A8C7D">
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="1" />
+          <End Role="Quality" Type="Self.Quality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milestone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Quality">
+              <PropertyRef Name="MileStoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Risk__MilestoneI__4316F928">
+          <End Role="Milestone" Type="Self.Milestone" Multiplicity="1" />
+          <End Role="Risk" Type="Self.Risk" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milestone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Risk">
+              <PropertyRef Name="MilestoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccountDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BudgetTimeline" EntityType="Self.BudgetTimeline" />
+          <EntitySet Name="CodeAnalysis" EntityType="Self.CodeAnalysis" />
+          <EntitySet Name="CodeAnalysisType" EntityType="Self.CodeAnalysisType" />
+          <EntitySet Name="Milestone" EntityType="Self.Milestone" />
+          <EntitySet Name="MilestoneStatus" EntityType="Self.MilestoneStatus" />
+          <EntitySet Name="MilestoneType" EntityType="Self.MilestoneType" />
+          <EntitySet Name="Project" EntityType="Self.Project" />
+          <EntitySet Name="Quality" EntityType="Self.Quality" />
+          <EntitySet Name="Risk" EntityType="Self.Risk" />
+          <AssociationSet Name="FK__BudgetTim__Miles__45F365D3" Association="Self.FK__BudgetTim__Miles__45F365D3">
+            <End Role="Milestone" EntitySet="Milestone" />
+            <End Role="BudgetTimeline" EntitySet="BudgetTimeline" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CodeAnaly__Analy__3D5E1FD2" Association="Self.FK__CodeAnaly__Analy__3D5E1FD2">
+            <End Role="CodeAnalysisType" EntitySet="CodeAnalysisType" />
+            <End Role="CodeAnalysis" EntitySet="CodeAnalysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CodeAnaly__MileS__3C69FB99" Association="Self.FK__CodeAnaly__MileS__3C69FB99">
+            <End Role="Milestone" EntitySet="Milestone" />
+            <End Role="CodeAnalysis" EntitySet="CodeAnalysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Milestone__Miles__30F848ED" Association="Self.FK__Milestone__Miles__30F848ED">
+            <End Role="MilestoneType" EntitySet="MilestoneType" />
+            <End Role="Milestone" EntitySet="Milestone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Milestone__Miles__31EC6D26" Association="Self.FK__Milestone__Miles__31EC6D26">
+            <End Role="MilestoneStatus" EntitySet="MilestoneStatus" />
+            <End Role="Milestone" EntitySet="Milestone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Milestone__Proje__300424B4" Association="Self.FK__Milestone__Proje__300424B4">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Milestone" EntitySet="Milestone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Quality__MileSto__403A8C7D" Association="Self.FK__Quality__MileSto__403A8C7D">
+            <End Role="Milestone" EntitySet="Milestone" />
+            <End Role="Quality" EntitySet="Quality" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Risk__MilestoneI__4316F928" Association="Self.FK__Risk__MilestoneI__4316F928">
+            <End Role="Milestone" EntitySet="Milestone" />
+            <End Role="Risk" EntitySet="Risk" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccountDBModelStoreContainer" CdmEntityContainer="AccountDBContext">
+          <EntitySetMapping Name="BudgetTimeline">
+            <EntityTypeMapping TypeName="AccountDBModel.BudgetTimeline">
+              <MappingFragment StoreEntitySet="BudgetTimeline">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MilestoneId" ColumnName="MilestoneId" />
+                <ScalarProperty Name="ActualStartDate" ColumnName="ActualStartDate" />
+                <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+                <ScalarProperty Name="Revenue" ColumnName="Revenue" />
+                <ScalarProperty Name="BurntEffort" ColumnName="BurntEffort" />
+                <ScalarProperty Name="UCPCPFPOrg" ColumnName="UCPCPFPOrg" />
+                <ScalarProperty Name="UCPCPFPCur" ColumnName="UCPCPFPCur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeAnalysis">
+            <EntityTypeMapping TypeName="AccountDBModel.CodeAnalysis">
+              <MappingFragment StoreEntitySet="CodeAnalysis">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MileStoneId" ColumnName="MileStoneId" />
+                <ScalarProperty Name="AnalysisTypeId" ColumnName="AnalysisTypeId" />
+                <ScalarProperty Name="Critical" ColumnName="Critical" />
+                <ScalarProperty Name="Blocker" ColumnName="Blocker" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Minor" ColumnName="Minor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeAnalysisType">
+            <EntityTypeMapping TypeName="AccountDBModel.CodeAnalysisType">
+              <MappingFragment StoreEntitySet="CodeAnalysisType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Milestone">
+            <EntityTypeMapping TypeName="AccountDBModel.Milestone">
+              <MappingFragment StoreEntitySet="Milestone">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="MilestoneType" ColumnName="MilestoneType" />
+                <ScalarProperty Name="MilestoneStatus" ColumnName="MilestoneStatus" />
+                <ScalarProperty Name="PlannedStartDate" ColumnName="PlannedStartDate" />
+                <ScalarProperty Name="PlannedEndDate" ColumnName="PlannedEndDate" />
+                <ScalarProperty Name="ActualStartDate" ColumnName="ActualStartDate" />
+                <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MilestoneStatus">
+            <EntityTypeMapping TypeName="AccountDBModel.MilestoneStatus">
+              <MappingFragment StoreEntitySet="MilestoneStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MilestoneType">
+            <EntityTypeMapping TypeName="AccountDBModel.MilestoneType">
+              <MappingFragment StoreEntitySet="MilestoneType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project">
+            <EntityTypeMapping TypeName="AccountDBModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="ActualStartDate" ColumnName="ActualStartDate" />
+                <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+                <ScalarProperty Name="PlannedEffort" ColumnName="PlannedEffort" />
+                <ScalarProperty Name="ActualEffort" ColumnName="ActualEffort" />
+                <ScalarProperty Name="TCV" ColumnName="TCV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quality">
+            <EntityTypeMapping TypeName="AccountDBModel.Quality">
+              <MappingFragment StoreEntitySet="Quality">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MileStoneId" ColumnName="MileStoneId" />
+                <ScalarProperty Name="CodeReviewTotal" ColumnName="CodeReviewTotal" />
+                <ScalarProperty Name="CodeReviewClosed" ColumnName="CodeReviewClosed" />
+                <ScalarProperty Name="UTDefectsTotal" ColumnName="UTDefectsTotal" />
+                <ScalarProperty Name="UTDefectsClosed" ColumnName="UTDefectsClosed" />
+                <ScalarProperty Name="SITDefectsTotal" ColumnName="SITDefectsTotal" />
+                <ScalarProperty Name="SITDefectsClosed" ColumnName="SITDefectsClosed" />
+                <ScalarProperty Name="UATDefectsTotal" ColumnName="UATDefectsTotal" />
+                <ScalarProperty Name="UATDefectsClosed" ColumnName="UATDefectsClosed" />
+                <ScalarProperty Name="SITTestcases" ColumnName="SITTestcases" />
+                <ScalarProperty Name="SITCompletion" ColumnName="SITCompletion" />
+                <ScalarProperty Name="UATTestcases" ColumnName="UATTestcases" />
+                <ScalarProperty Name="UATCompletion" ColumnName="UATCompletion" />
+                <ScalarProperty Name="UTToolName" ColumnName="UTToolName" />
+                <ScalarProperty Name="UTCodeCoverage" ColumnName="UTCodeCoverage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Risk">
+            <EntityTypeMapping TypeName="AccountDBModel.Risk">
+              <MappingFragment StoreEntitySet="Risk">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MilestoneId" ColumnName="MilestoneId" />
+                <ScalarProperty Name="TotalRisk" ColumnName="TotalRisk" />
+                <ScalarProperty Name="OpenRisk" ColumnName="OpenRisk" />
+                <ScalarProperty Name="ActionPlan" ColumnName="ActionPlan" />
+                <ScalarProperty Name="SupportRequest" ColumnName="SupportRequest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
