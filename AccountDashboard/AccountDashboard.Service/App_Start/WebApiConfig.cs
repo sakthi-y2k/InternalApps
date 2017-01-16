@@ -1,6 +1,10 @@
-﻿using System;
+﻿using AccountDashboard.Service.App_Start;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace AccountDashboard.Service
@@ -19,6 +23,11 @@ namespace AccountDashboard.Service
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            //Remove default XML formatter and set JSON Formatter.
+            config.Formatters.Add(new JsonFormatter());
+
         }
     }
+
+    
 }
