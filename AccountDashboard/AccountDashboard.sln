@@ -1,15 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Web", "AccountDashboard.Web\AccountDashboard.Web.csproj", "{B0831342-62FE-4285-BB2E-EB0E6C61F5C9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8D45A40F-E061-4D64-8E12-DFDE88508FE3} = {8D45A40F-E061-4D64-8E12-DFDE88508FE3}
+	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AccountDashboard.Database", "AccountDashboard.Database\AccountDashboard.Database.sqlproj", "{0CF94DE0-5450-4CF4-B1FD-6E683DD1F988}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Service", "AccountDashboard.Service\AccountDashboard.Service.csproj", "{8D45A40F-E061-4D64-8E12-DFDE88508FE3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C3246E1C-6E43-4DA2-AB6C-B3BE5A9C7BC5} = {C3246E1C-6E43-4DA2-AB6C-B3BE5A9C7BC5}
+		{573820FD-1281-48F6-9181-8CBE0906BB00} = {573820FD-1281-48F6-9181-8CBE0906BB00}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Data", "AccountDashboard.Data\AccountDashboard.Data.csproj", "{C3246E1C-6E43-4DA2-AB6C-B3BE5A9C7BC5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{573820FD-1281-48F6-9181-8CBE0906BB00} = {573820FD-1281-48F6-9181-8CBE0906BB00}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountDashboard.Model", "AccountDashboard.Model\AccountDashboard.Model.csproj", "{573820FD-1281-48F6-9181-8CBE0906BB00}"
 EndProject
