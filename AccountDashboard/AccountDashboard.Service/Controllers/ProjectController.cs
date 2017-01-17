@@ -13,7 +13,7 @@ using AccountDashboard.Data.Repositories;
 
 namespace AccountDashboard.Service.Controllers
 {
-    public class ProjectController : ApiController
+    public class ProjectController : BaseApiController
     {
         private ProjectRepositary repo = new ProjectRepositary();
 
