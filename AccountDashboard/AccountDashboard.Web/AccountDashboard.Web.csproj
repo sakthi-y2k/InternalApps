@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".jshintrc" />
+    <Content Include="app.js" />
     <Content Include="bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
@@ -156,8 +157,10 @@
     <Content Include="build\less\variables.less" />
     <Content Include="changelog.md" />
     <Content Include="composer.json" />
+    <Content Include="controllers\MainController.js" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
+    <Content Include="plugins\angular\angular.min.js" />
     <Content Include="plugins\ckeditor\CHANGES.md" />
     <Content Include="plugins\ckeditor\LICENSE.md" />
     <Content Include="plugins\ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -195,6 +198,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="services\AuthService.js" />
     <Content Include="yarn.lock" />
   </ItemGroup>
   <ItemGroup>
