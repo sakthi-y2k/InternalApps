@@ -180,6 +180,8 @@
     <Content Include="Index3.html" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
+    <Content Include="pages\upload.html" />
+    <Content Include="plugins\angular\angular-route.min.js" />
     <Content Include="plugins\angular\angular.min.js" />
     <Content Include="plugins\ckeditor\CHANGES.md" />
     <Content Include="plugins\ckeditor\LICENSE.md" />
@@ -220,6 +222,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="services\AuthService.js" />
+    <Content Include="views\dashboard.html" />
+    <Content Include="views\upload.html" />
     <Content Include="yarn.lock" />
   </ItemGroup>
   <ItemGroup>
