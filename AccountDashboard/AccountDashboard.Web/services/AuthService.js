@@ -10,5 +10,28 @@
             getUser: getUser
         }
     };
+
     var module = angular.module("AccountDashboard").factory("AuthService", AuthService);
+
+     //Added by Pavan for Excel File Upload
+     var fileUploadService =  function ($http) {
+        this.uploadFileToUrl = function (file, uploadUrl) {
+            var fd = new FormData();
+            fd.append('file', file);
+
+            $http.post(uploadUrl, fd, {
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            })
+
+            .success(function () {
+                alert("File Uploaded Successfully");
+            })
+
+            .error(function () {
+                alert("Error !!");
+            });
+        }}
+     var fileUpload = angular.module("AccountDashboard").service('fileUpload', ['$http', fileUploadService]);
+
 }());
