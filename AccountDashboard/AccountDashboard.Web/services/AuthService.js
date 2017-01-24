@@ -23,11 +23,9 @@
                 transformRequest: angular.identity,
                 headers: { 'Content-Type': undefined }
             })
-
             .success(function () {
                 alert("File Uploaded Successfully");
             })
-
             .error(function () {
                 alert("Error !!");
             });

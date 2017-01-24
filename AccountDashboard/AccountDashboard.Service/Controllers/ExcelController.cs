@@ -17,9 +17,7 @@ namespace AccountDashboard.Service.Controllers
         {
             //FIRST, SAVE THE SELECTED FILE IN THE ROOT DIRECTORY.
 
-            System.Web.HttpFileCollection hfc = System.Web.HttpContext.Current.Request.Files;
-
-            string ConStr = String.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\394107\Desktop\Ford_Delivery_Tracker.xlsx;Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1""");
+            string ConStr = String.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\394107\Documents\Ford_Delivery_Tracker_Dash.xlsx;Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1""");
 
             // SET A CONNECTION WITH THE EXCEL FILE.
             OleDbConnection myExcelConn = new OleDbConnection(ConStr);

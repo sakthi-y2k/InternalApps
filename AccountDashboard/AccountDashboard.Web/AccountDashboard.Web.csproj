@@ -174,8 +174,10 @@
     <Content Include="changelog.md" />
     <Content Include="composer.json" />
     <Content Include="controllers\MainController.js" />
-    <Content Include="controllers\UploadExcel.js" />
+    <Content Include="controllers\UploadExcelController.js" />
     <Content Include="directives\directive.js" />
+    <Content Include="DisplayTable.html" />
+    <Content Include="GetTables.js" />
     <Content Include="Global.asax" />
     <Content Include="Index3.html" />
     <Content Include="LICENSE" />
@@ -222,7 +224,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="services\AuthService.js" />
+    <Content Include="Tables.html" />
     <Content Include="views\dashboard.html" />
+    <Content Include="views\ProjectDetails.html" />
     <Content Include="views\upload.html" />
     <Content Include="yarn.lock" />
   </ItemGroup>
