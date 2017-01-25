@@ -18,7 +18,11 @@
                  templateUrl: "views/dashboard.html",
                  controller: "MainController"
              })
-            .when("/Project", {
+            //.when("/Project", {
+            //    templateUrl: "views/ProjectDetails.html",
+            //    controller: "MainController"
+            //})
+            .when("/Project/:id?", {
                 templateUrl: "views/ProjectDetails.html",
                 controller: "MainController"
             })

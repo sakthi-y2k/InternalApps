@@ -10,21 +10,21 @@
     </thead>
     <tbody>
         <tr class="greenProjects" ng-repeat="project in Projects.Green">
-            <td><a href="Project">{{project.ProjectId}}</a></td>
+            <td><a href="Project/{{project.ProjectId}}">{{project.ProjectId}}</a></td>
             <td>{{project.ProjectName}}</td>
             <td><span class="label label-success">{{project.Status}}</span></td>
             <td>{{project.OffshorePM}}</td>
             <td>{{project.Milestone}}</td>
         </tr>
         <tr class="amberProjects" ng-repeat="project in Projects.Amber">
-            <td><a href="Project">{{project.ProjectId}}</a></td>
+            <td><a href="Project/{{project.ProjectId}}">{{project.ProjectId}}</a></td>
             <td>{{project.ProjectName}}</td>
             <td><span class="label label-success">{{project.Status}}</span></td>
             <td>{{project.OffshorePM}}</td>
             <td>{{project.Milestone}}</td>
         </tr>
         <tr class="redProjects" ng-repeat="project in Projects.Red">
-            <td><a href="Project">{{project.ProjectId}}</a></td>
+            <td><a href="Project/{{project.ProjectId}}">{{project.ProjectId}}</a></td>
             <td>{{project.ProjectName}}</td>
             <td><span class="label label-success">{{project.Status}}</span></td>
             <td>{{project.OffshorePM}}</td>

@@ -224,9 +224,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="services\AuthService.js" />
-    <Content Include="Tables.html" />
     <Content Include="views\dashboard.html" />
     <Content Include="views\ProjectDetails.html" />
+    <Content Include="views\Tables.html" />
     <Content Include="views\upload.html" />
     <Content Include="yarn.lock" />
   </ItemGroup>
