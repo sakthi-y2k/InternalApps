@@ -177,7 +177,7 @@
     <Content Include="controllers\UploadExcelController.js" />
     <Content Include="directives\directive.js" />
     <Content Include="DisplayTable.html" />
-    <Content Include="GetTables.js" />
+    <Content Include="dist\img\DeliveryDash.jpg" />
     <Content Include="Index3.html" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
@@ -224,6 +224,7 @@
     </None>
     <Content Include="services\AuthService.js" />
     <Content Include="views\dashboard.html" />
+    <Content Include="views\DashboardMain.html" />
     <Content Include="views\ProjectDetails.html" />
     <Content Include="views\Tables.html" />
     <Content Include="views\upload.html" />

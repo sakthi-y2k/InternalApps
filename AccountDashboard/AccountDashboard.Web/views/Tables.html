@@ -1,4 +1,4 @@
-﻿<table id="ProjectTable" class="table table-hover" style="border: 1px solid black; border-collapse:collapse">
+﻿<!--<table id="ProjectTable" class="table table-hover" style="border: 1px solid black; border-collapse:collapse">
     <thead>
         <tr>
             <th>Project ID</th>
@@ -32,4 +32,53 @@
         </tr>
     </tbody>
 
-</table>
+</table>-->
+
+    <table id="ProjectTable" class="table table-hover" style="border-collapse:collapse">
+        <thead>
+            <tr>
+                <th>Project ID</th>
+                <th>Project Name</th>
+                <th>Offshore PM</th>
+                <th>Current Phase</th>
+                <th>Schedule Variance</th>
+                <th>Effort Variance</th>
+                <th>Scope deviation</th>
+                <th>Defect Density</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="greenProjects" ng-repeat="project in Projects.Green | filter:myfilter">
+                <td><a href="Project/{{project.ProjectId}}">{{project.ProjectId}}</a></td>
+                <td>{{project.ProjectName}}</td>
+                <td>{{project.OffshorePM}}</td>
+                <td>{{project.Milestone}}</td>
+                <td>{{project.ScheduleVariance | number:2}}</td>
+                <td>{{project.EffortVariance | number:2 }}</td>
+                <td>{{project.ScopeDeviation | number:2}}</td>
+                <td>{{project.DefectDensity | number:2}}</td>
+            </tr>
+            <tr class="amberProjects" ng-repeat="project in Projects.Amber">
+                <td><a href="Project/{{project.ProjectId}}">{{project.ProjectId}}</a></td>
+                <td>{{project.ProjectName}}</td>
+                <td>{{project.OffshorePM}}</td>
+                <td>{{project.Milestone}}</td>
+                <td>{{project.ScheduleVariance | number:2}}</td>
+                <td>{{project.EffortVariance | number:2}}</td>
+                <td>{{project.ScopeDeviation | number:2}}</td>
+                <td>{{project.DefectDensity | number:2}}</td>
+            </tr>
+            <tr class="redProjects" ng-repeat="project in Projects.Red">
+                <td><a href="Project/{{project.ProjectId}}">{{project.ProjectId}}</a></td>
+                <td>{{project.ProjectName}}</td>
+                <td>{{project.OffshorePM}}</td>
+                <td>{{project.Milestone}}</td>
+                <td>{{project.ScheduleVariance | number:2}}</td>
+                <td>{{project.EffortVariance | number:2}}</td>
+                <td>{{project.ScopeDeviation | number:2}}</td>
+                <td>{{project.DefectDensity | number:2}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
